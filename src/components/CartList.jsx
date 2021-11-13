@@ -20,7 +20,15 @@ const CartList = ({ setIsOpen }) => {
       {cartList.map((item) => {
         return (
           <Stack key={item.id} direction='column' justifyContent='center'>
-            <Card elevation={0} sx={{ alignItems: 'center' }}>
+            <Card
+              elevation={0}
+              sx={{
+                alignItems: 'center',
+                '@media screen and (max-width: 330px)': {
+                  padding: '16px 0',
+                },
+              }}
+            >
               <CardHeader
                 avatar={
                   <Avatar

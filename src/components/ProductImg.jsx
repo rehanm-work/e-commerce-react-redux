@@ -31,6 +31,9 @@ const ProductImg = ({ productImgsList }) => {
             sx={{
               cursor: 'pointer',
               position: 'absolute',
+              '@media screen and (max-width: 330px)': {
+                left: '-6px',
+              },
               '&.Mui-disabled': {
                 opacity: '0.6',
                 '& svg': { color: 'hsl(219deg 9% 45%)' },
@@ -69,6 +72,9 @@ const ProductImg = ({ productImgsList }) => {
               cursor: 'pointer',
               position: 'absolute',
               right: 0,
+              '@media screen and (max-width: 330px)': {
+                right: '20px',
+              },
               '&.Mui-disabled': {
                 opacity: '0.6',
                 '& svg': { color: 'hsl(219deg 9% 45%)' },

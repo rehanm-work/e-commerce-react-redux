@@ -10,7 +10,7 @@ import { useState } from 'react';
 import SignUp from './pages/SignUp';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <Router>

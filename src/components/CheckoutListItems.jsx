@@ -20,8 +20,13 @@ const CheckoutListItems = (props) => {
   }, [dispatch, id, quantity]);
 
   //Executes when the value changes
-  const handle = (e) => {
-    const newValue = Math.min(Math.max(e.target.value, minValue), maxValue);
+  const handlePlus = (e) => {
+    const newValue = Math.min(Math.max(value + 1, minValue), maxValue);
+    setValue(newValue);
+    dispatch(changeQuantity({ id: id, quantity: newValue }));
+  };
+  const handleMinus = (e) => {
+    const newValue = Math.min(Math.max(value - 1, minValue), maxValue);
     setValue(newValue);
     dispatch(changeQuantity({ id: id, quantity: newValue }));
   };
@@ -73,25 +78,40 @@ const CheckoutListItems = (props) => {
             padding: '1rem',
             alignItems: 'center',
             '@media screen and (max-width: 1025px)': {
-              flexDirection: 'row',
               columnGap: '1rem',
               padding: 0,
               margin: 0,
             },
           }}
         >
-          <TextField
-            variant='standard'
-            value={value}
+          <Box
             sx={{
-              maxWidth: '50px',
-              '.MuiInput-root:hover::before': {
-                borderBottom: '1px solid rgb(133, 133, 133)',
+              display: 'flex',
+              alignItems: 'center',
+              width: '90%',
+              height: '3.1rem',
+              padding: '0 1rem 0',
+              justifyContent: 'space-between',
+              backgroundColor: 'hsl(223, 64%, 98%)',
+              borderRadius: '15px',
+              '& img': {
+                cursor: 'pointer',
+                padding: '5px',
               },
             }}
-            type='number'
-            onChange={handle}
-          />
+          >
+            <img
+              onClick={handleMinus}
+              src='/images/icon-minus.svg'
+              alt='minus-img'
+            />
+            <h2>{value}</h2>
+            <img
+              onClick={handlePlus}
+              src='/images/icon-plus.svg'
+              alt='plus-img'
+            />
+          </Box>
           <Button
             onClick={() => dispatch(removeItem({ id: id }))}
             sx={{

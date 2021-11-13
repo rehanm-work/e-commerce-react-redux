@@ -232,6 +232,11 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                         top: '6rem',
                         right: '3%',
                         minWidth: '350px',
+                        '@media screen and (max-width: 330px)': {
+                          minWidth: '340px',
+                          right: '5px',
+                          left: '5px',
+                        },
                       }}
                     >
                       <Stack
@@ -395,7 +400,7 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                       position: 'absolute',
                       top: '6rem',
                       right: '10px',
-                      minWidth: '300px',
+                      minWidth: '350px',
                     }}
                   >
                     <Stack
