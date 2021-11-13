@@ -193,7 +193,10 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                   />
                   <Zoom
                     in={avatarIsOpen}
-                    style={{ transformOrigin: '45px -30px', zIndex: '5' }}
+                    style={{
+                      transformOrigin: '40px -10px',
+                      zIndex: '5',
+                    }}
                   >
                     <Paper
                       elevation={12}
@@ -201,6 +204,9 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                         position: 'absolute',
                         top: '4rem',
                         right: '10px',
+                        '@media screen and (max-width: 361px)': {
+                          right: '12px',
+                        },
                       }}
                     >
                       <Stack
@@ -223,7 +229,15 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                       </Stack>
                     </Paper>
                   </Zoom>
-                  <Zoom in={isOpen} style={{ transformOrigin: '280px -30px' }}>
+                  <Zoom
+                    in={isOpen}
+                    style={{
+                      transformOrigin: '280px -30px',
+                      '@media screen and (max-width: 361px)': {
+                        transformOrigin: '200px -30px',
+                      },
+                    }}
+                  >
                     <Paper
                       elevation={12}
                       sx={{
@@ -232,10 +246,10 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                         top: '6rem',
                         right: '3%',
                         minWidth: '350px',
-                        '@media screen and (max-width: 330px)': {
+                        '@media screen and (max-width: 361px)': {
                           minWidth: '340px',
-                          right: '5px',
-                          left: '5px',
+                          right: 0,
+                          left: 0,
                         },
                       }}
                     >
