@@ -221,6 +221,7 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                         <Button
                           onClick={() => {
                             setIsLoggedIn(false);
+                            setAvatarIsOpen(false);
                             history.push('/');
                           }}
                         >
@@ -396,6 +397,7 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                       <Button
                         onClick={() => {
                           setIsLoggedIn(false);
+                          setAvatarIsOpen(false);
                           history.push('/');
                         }}
                       >
