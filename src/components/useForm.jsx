@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { addUser } from '../features/user';
 
 export const useForm = (initialValues, validateForm, setIsLoggedIn = false) => {
-  const user = useSelector((state) => state.users.value[0]);
+  const user = useSelector((state) => state.users.value);
   const history = useHistory();
   const dispatch = useDispatch();
   const [values, setValues] = useState(initialValues);
@@ -30,7 +30,10 @@ export const useForm = (initialValues, validateForm, setIsLoggedIn = false) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       if (values.page === 'signIn') {
-        if (user.email === values.email && user.password === values.password) {
+        if (
+          user[0].email === values.email &&
+          user[0].password === values.password
+        ) {
           setIsLoggedIn(true);
           history.push('/');
         }
@@ -46,7 +49,12 @@ export const useForm = (initialValues, validateForm, setIsLoggedIn = false) => {
     e.preventDefault();
     setIsSubmitting(true);
     if (values.page === 'signIn') {
-      setErrors(validateForm(values, user));
+      if (user.length === 0) {
+        errors.email = 'Invalid user';
+        console.log('Invalid user');
+      } else {
+        setErrors(validateForm(values, user[0]));
+      }
     } else {
       setErrors(validateForm(values));
     }

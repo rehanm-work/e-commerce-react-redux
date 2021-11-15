@@ -234,7 +234,7 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
                     in={isOpen}
                     style={{
                       transformOrigin: '280px -30px',
-                      '@media screen and (max-width: 361px)': {
+                      '@media screen and (maxWidth: 361px)': {
                         transformOrigin: '200px -30px',
                       },
                     }}
