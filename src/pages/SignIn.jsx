@@ -6,7 +6,6 @@ import {
   FormControlLabel,
   TextField,
   Checkbox,
-  Link,
   Grid,
   Box,
   Typography,
@@ -15,7 +14,7 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useForm } from '../components/useForm';
 import login_info_validation from '../validation/login_info_validation';
-// import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const initialValue = {
   page: 'signIn',
@@ -100,8 +99,14 @@ export default function SignIn({ setIsLoggedIn }) {
           </Button>
           <Grid container>
             <Grid item sx={{ marginTop: '5px' }}>
-              <Link href='/sign-up' variant='body2'>
-                {"Don't have an account? Sign Up"}
+              <Link
+                to='/sign-up'
+                style={{
+                  textDecoration: 'underline',
+                  color: 'hsl(26, 100%, 55%)',
+                }}
+              >
+                Don't have an account? Sign Up
               </Link>
             </Grid>
           </Grid>

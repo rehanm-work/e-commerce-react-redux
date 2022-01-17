@@ -6,12 +6,12 @@ import {
   FormControlLabel,
   TextField,
   Checkbox,
-  Link,
   Grid,
   Box,
   Typography,
   Container,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useForm } from '../components/useForm';
 import validate_info from '../validation/validate_info';
@@ -154,7 +154,13 @@ export default function SignUp() {
           </Button>
           <Grid container justifyContent='flex-end'>
             <Grid item>
-              <Link href='/sign-in' variant='body2'>
+              <Link
+                to='/sign-in'
+                style={{
+                  textDecoration: 'underline',
+                  color: 'hsl(26, 100%, 55%)',
+                }}
+              >
                 Already have an account? Sign in
               </Link>
             </Grid>

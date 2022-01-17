@@ -25,7 +25,8 @@ const Product = () => {
     <Stack
       sx={{
         marginTop: '2rem',
-        width: '100vw',
+        marginBottom: '2rem',
+        width: '100%',
         '@media screen and (max-width: 380px)': { marginTop: 0 },
       }}
       direction={matches ? 'column' : 'row'}
